@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="layout/header.jsp"%>
-
-
 <!-- ::::::  Start  Breadcrumb Section  ::::::  -->
 <div class="page-breadcrumb">
 	<div class="container">
@@ -29,37 +27,33 @@
 						<div class="row">
 							<div class="col-lg-7 col-md-12 ml-auto mr-auto">
 								<div class="login-register-wrapper">
-									<h4 style="text-align:center" >Login</h4>
+									<h4 style="text-align: center">Register</h4>
 									<div class="login-form-container">
-										<b><span id="messageError" style="color: red"></span></b>
+									<b><span id="messageError" style="color: red"></span></b>
 										<div class="login-register-form">
-											<form action='<c:url value="/LoginController"></c:url>'
-												method="post" id="formLogin">
-
+											<form action="#" method="post" id="formRegister">
 												<div class="form-box__single-group">
-													<input type="text" id="form-email" name="email"
-														placeholder="Tài khoản"> <b><span
-														id="messageErrorEmail" style="color: red"></span></b>
+													<input type="text" id="form-register-name"
+														placeholder="Tên của bạn">
 												</div>
 												<div class="form-box__single-group">
-													<input type="password" id="form-username-password"
-														name="password" placeholder="Mật Khẩu"> <b><span
-														id="messageErrorPassword" style="color: red"></span></b>
+													<input type="email" id="form-register-email"
+														placeholder="Email">
 												</div>
-												<div
-													class="d-flex justify-content-between flex-wrap m-tb-20">
-													<label for="account-remember"> <input
-														type="checkbox" name="account-remember"
-														id="account-remember"> <span>Nhớ tài khoản</span>
-													</label> <a class="link--gray" href="">Quên mật khẩu?</a>
+												<div class="form-box__single-group m-b-20">
+													<input type="password" id="form-register-password"
+														placeholder="Mật Khẩu">
+												</div>
+												<div class="form-box__single-group m-b-20">
+													<input type="password" id="form-register-confirm-password"
+														placeholder="Nhập Lại Mật Khẩu">
 												</div>
 												<button
 													class="btn btn--box btn--small btn--blue btn--uppercase btn--weight"
-													type="submit">Đăng Nhập</button>
+													type="submit">Đăng Ký</button>
 											</form>
 										</div>
 									</div>
-
 
 
 								</div>
@@ -79,29 +73,31 @@
 <%@ include file="layout/scripts.jsp"%>
 <script type="text/javascript">
 	$(document).ready(function() {
-		/* Form login  */
-		$('#formLogin').submit(function(e) {
+
+		/* Form register */
+		$('#formRegister').submit(function(e) {
 			e.preventDefault();
-			let email = $('#form-email').val();
-			let password = $('#form-username-password').val();
+			let name = $('#form-register-name').val();
+			let email = $('#form-register-email').val();
+			let password = $('#form-register-password').val();
 
 			$.ajax({
 				type : "POST",
-				url : '/TubeFashtion/LoginController',
+				url : '/TubeFashtion/RegisterController',
 				data : {
+					name : name,
 					email : email,
 					password : password
 				},
 				success : function(data) {
-					if(data.length > 1000) {
-						window.location = "/TubeFashtion/";
+					if(data.length > 2000) {
+						window.location = "/TubeFashtion/login";
 					} else {
 						$('#messageError').html(data);
 					}
 				}
 			});
 		})
-
 	})
 </script>
 </body>

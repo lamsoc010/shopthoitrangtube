@@ -2,7 +2,6 @@ package com.tubefashtion.Controller.User;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -21,17 +20,16 @@ import javax.validation.ValidatorFactory;
 import com.tubefashtion.DAO.UserDao;
 import com.tubefashtion.Model.User;
 
-@WebServlet("/LoginController")
-public class LoginController extends HttpServlet {
+@WebServlet("/RegisterController")
+public class RegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public LoginController() {
+    public RegisterController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -43,8 +41,10 @@ public class LoginController extends HttpServlet {
 		
 //		get value
 		User user = new User();
+		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		user.setName(name);
 		user.setEmail(email);
 		user.setPassword(password);
 		
@@ -57,19 +57,23 @@ public class LoginController extends HttpServlet {
                 message += violation.getMessage() + "<br>";
             }
 		} else {
-			user = UserDao.checkLoginUser(email, password);
-			if(user != null) {
-				HttpSession session = request.getSession();
-				session.setAttribute("user", user.getName());
-				session.setAttribute("userId", user.getId());
-				RequestDispatcher rd = request.getRequestDispatcher("/Views/Client/index.jsp");
+//			Kiểm tra xem email này đã tồn tại trong hệ thống chưa
+			List<User> listUser = UserDao.getAllUser();
+			boolean checkUnique = true;
+			for(int i = 0; i < listUser.size(); i++) {
+				if(listUser.get(i).getEmail().equals(email)) {
+					message = "Email này đã tồn tại";
+					checkUnique = false;
+					break;
+				}
+			}
+			if(checkUnique) {
+				UserDao.insertUser(user);
+				RequestDispatcher rd = request.getRequestDispatcher("/Views/Client/login.jsp");
 				rd.forward(request, response);
-			} else {
-				message = "Tài khoản hoặc mật khẩu không đúng!";
 			}
 		}
 		out.write(message);
-		
 	}
 
 }

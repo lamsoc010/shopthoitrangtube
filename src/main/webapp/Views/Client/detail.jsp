@@ -30,79 +30,6 @@
 				<div class="product-details">
 					<!-- render product-details -->
 					<div class="row" id="productDetail">
-						<div class="col-6">
-							<div class="product-gallery-box m-b-60">
-								<div class="product-image--large overflow-hidden">
-									<img class="img-fluid" id="img-zoom"
-										src="assets/img/product/gallery/gallery-large/product-gallery-large-1.jpg"
-										data-zoom-image="assets/img/product/gallery/gallery-large/product-gallery-large-1.jpg"
-										alt="">
-								</div>
-								<div class="pos-relative m-t-30">
-									<div id="gallery-zoom"
-										class="product-image--thumb product-image--thumb-horizontal overflow-hidden swiper-outside-arrow-hover m-lr-30">
-										<div class="swiper-wrapper">
-											<div class="swiper-slide">
-												<a class="zoom-active"
-													data-image="assets/img/product/gallery/gallery-large/product-gallery-large-1.jpg"
-													data-zoom-image="assets/img/product/gallery/gallery-large/product-gallery-large-1.jpg">
-													<img class="img-fluid"
-													src="assets/img/product/gallery/gallery-thumb/product-gallery-thumb-1.jpg"
-													alt="">
-												</a>
-											</div>
-											<div class="swiper-slide">
-												<a
-													data-image="assets/img/product/gallery/gallery-large/product-gallery-large-2.jpg"
-													data-zoom-image="assets/img/product/gallery/gallery-large/product-gallery-large-2.jpg">
-													<img class="img-fluid"
-													src="assets/img/product/gallery/gallery-thumb/product-gallery-thumb-2.jpg"
-													alt="">
-												</a>
-											</div>
-											<div class="swiper-slide">
-												<a
-													data-image="assets/img/product/gallery/gallery-large/product-gallery-large-3.jpg"
-													data-zoom-image="assets/img/product/gallery/gallery-large/product-gallery-large-3.jpg">
-													<img class="img-fluid"
-													src="assets/img/product/gallery/gallery-thumb/product-gallery-thumb-3.jpg"
-													alt="">
-												</a>
-											</div>
-											<div class="swiper-slide">
-												<a
-													data-image="assets/img/product/gallery/gallery-large/product-gallery-large-4.jpg"
-													data-zoom-image="assets/img/product/gallery/gallery-large/product-gallery-large-4.jpg">
-													<img class="img-fluid"
-													src="assets/img/product/gallery/gallery-thumb/product-gallery-thumb-4.jpg"
-													alt="">
-												</a>
-											</div>
-											<div class="swiper-slide">
-												<a
-													data-image="assets/img/product/gallery/gallery-large/product-gallery-large-5.jpg"
-													data-zoom-image="assets/img/product/gallery/gallery-large/product-gallery-large-5.jpg">
-													<img class="img-fluid"
-													src="assets/img/product/gallery/gallery-thumb/product-gallery-thumb-5.jpg"
-													alt="">
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="swiper-buttons">
-										<!-- Add Arrows -->
-										<div
-											class="swiper-button-next gallery__nav gallery__nav--next">
-											<i class="fal fa-chevron-right"></i>
-										</div>
-										<div
-											class="swiper-button-prev gallery__nav gallery__nav--prev">
-											<i class="fal fa-chevron-left"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -351,8 +278,7 @@
 						<div class="col-12">
 							<div
 								class="section-content section-content--border d-flex align-items-center justify-content-between">
-								<h5 class="section-content__title">12 Other Products In The
-									Same Category:</h5>
+								<h5 class="section-content__title">Sản phẩm liên quan:</h5>
 							</div>
 						</div>
 					</div>
@@ -361,210 +287,8 @@
 							<div class="swiper-outside-arrow-fix pos-relative">
 								<div
 									class="product-default-slider-5grid overflow-hidden  m-t-50">
-									<div class="swiper-wrapper">
-										<!-- Start Single Default Product -->
-										<div
-											class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-											<div class="product__img-box">
-												<a href="single-1.html" class="product__img--link"> <img
-													class="product__img"
-													src="assets/img/product/size-normal/product-home-1-img-1.jpg"
-													alt="">
-												</a> <a href="#modalAddCart" data-toggle="modal"
-													class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add
-													to cart</a> <span class="product__tag product__tag--discount">-12%</span>
-												<a href="wishlist.html" class="product__wishlist-icon"><i
-													class="icon-heart"></i></a>
-											</div>
-											<div class="product__price m-t-10">
-												<span class="product__price-del">$11.90</span> <span
-													class="product__price-reg">$10.71</span>
-											</div>
-											<a href="single-1.html"
-												class="product__link product__link--underline product__link--weight-light m-t-15">
-												SonicFuel Wireless Over-Ear Headphones </a>
-										</div>
-										<!-- End Single Default Product -->
-										<!-- Start Single Default Product -->
-										<div
-											class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-											<div class="product__img-box">
-												<a href="single-1.html" class="product__img--link"> <img
-													class="product__img"
-													src="assets/img/product/size-normal/product-home-1-img-2.jpg"
-													alt="">
-												</a> <a href="#modalAddCart" data-toggle="modal"
-													class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add
-													to cart</a> <span class="product__tag product__tag--new">New</span>
-												<a href="wishlist.html" class="product__wishlist-icon"><i
-													class="icon-heart"></i></a>
-											</div>
-											<div class="product__price m-t-10">
-												<span class="product__price-reg">$10.71</span>
-											</div>
-											<a href="single-1.html"
-												class="product__link product__link--underline product__link--weight-light m-t-15">
-												SonicFuel Wireless Over-Ear Headphones </a>
-										</div>
-										<!-- End Single Default Product -->
-										<!-- Start Single Default Product -->
-										<div
-											class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-											<div class="product__img-box">
-												<a href="single-1.html" class="product__img--link"> <img
-													class="product__img"
-													src="assets/img/product/size-normal/product-home-1-img-3.jpg"
-													alt="">
-												</a> <a href="#modalAddCart" data-toggle="modal"
-													class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add
-													to cart</a> <span class="product__tag product__tag--discount">-12%</span>
-												<a href="wishlist.html" class="product__wishlist-icon"><i
-													class="icon-heart"></i></a>
-											</div>
-											<div class="product__price m-t-10">
-												<span class="product__price-del">$11.90</span> <span
-													class="product__price-reg">$10.71</span>
-											</div>
-											<a href="single-1.html"
-												class="product__link product__link--underline product__link--weight-light m-t-15">
-												SonicFuel Wireless Over-Ear Headphones </a>
-										</div>
-										<!-- End Single Default Product -->
-										<!-- Start Single Default Product -->
-										<div
-											class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-											<div class="product__img-box">
-												<a href="single-1.html" class="product__img--link"> <img
-													class="product__img"
-													src="assets/img/product/size-normal/product-home-1-img-4.jpg"
-													alt="">
-												</a> <a href="#modalAddCart" data-toggle="modal"
-													class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add
-													to cart</a> <span class="product__tag product__tag--new">New</span>
-												<a href="wishlist.html" class="product__wishlist-icon"><i
-													class="icon-heart"></i></a>
-											</div>
-											<div class="product__price m-t-10">
-												<span class="product__price-reg">$10.71</span>
-											</div>
-											<a href="single-1.html"
-												class="product__link product__link--underline product__link--weight-light m-t-15">
-												SonicFuel Wireless Over-Ear Headphones </a>
-										</div>
-										<!-- End Single Default Product -->
-										<!-- Start Single Default Product -->
-										<div
-											class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-											<div class="product__img-box">
-												<a href="single-1.html" class="product__img--link"> <img
-													class="product__img"
-													src="assets/img/product/size-normal/product-home-1-img-5.jpg"
-													alt="">
-												</a> <a href="#modalAddCart" data-toggle="modal"
-													class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add
-													to cart</a> <span class="product__tag product__tag--discount">-12%</span>
-												<a href="wishlist.html" class="product__wishlist-icon"><i
-													class="icon-heart"></i></a>
-											</div>
-											<div class="product__price m-t-10">
-												<span class="product__price-del">$11.90</span> <span
-													class="product__price-reg">$10.71</span>
-											</div>
-											<a href="single-1.html"
-												class="product__link product__link--underline product__link--weight-light m-t-15">
-												SonicFuel Wireless Over-Ear Headphones </a>
-										</div>
-										<!-- End Single Default Product -->
-										<!-- Start Single Default Product -->
-										<div
-											class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-											<div class="product__img-box">
-												<a href="single-1.html" class="product__img--link"> <img
-													class="product__img"
-													src="assets/img/product/size-normal/product-home-1-img-6.jpg"
-													alt="">
-												</a> <a href="#modalAddCart" data-toggle="modal"
-													class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add
-													to cart</a> <span class="product__tag product__tag--new">New</span>
-												<a href="wishlist.html" class="product__wishlist-icon"><i
-													class="icon-heart"></i></a>
-											</div>
-											<div class="product__price m-t-10">
-												<span class="product__price-reg">$10.71</span>
-											</div>
-											<a href="single-1.html"
-												class="product__link product__link--underline product__link--weight-light m-t-15">
-												SonicFuel Wireless Over-Ear Headphones </a>
-										</div>
-										<!-- End Single Default Product -->
-										<!-- Start Single Default Product -->
-										<div
-											class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-											<div class="product__img-box">
-												<a href="single-1.html" class="product__img--link"> <img
-													class="product__img"
-													src="assets/img/product/size-normal/product-home-1-img-7.jpg"
-													alt="">
-												</a> <a href="#modalAddCart" data-toggle="modal"
-													class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add
-													to cart</a> <span class="product__tag product__tag--discount">-12%</span>
-												<a href="wishlist.html" class="product__wishlist-icon"><i
-													class="icon-heart"></i></a>
-											</div>
-											<div class="product__price m-t-10">
-												<span class="product__price-del">$11.90</span> <span
-													class="product__price-reg">$10.71</span>
-											</div>
-											<a href="single-1.html"
-												class="product__link product__link--underline product__link--weight-light m-t-15">
-												SonicFuel Wireless Over-Ear Headphones </a>
-										</div>
-										<!-- End Single Default Product -->
-										<!-- Start Single Default Product -->
-										<div
-											class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-											<div class="product__img-box">
-												<a href="single-1.html" class="product__img--link"> <img
-													class="product__img"
-													src="assets/img/product/size-normal/product-home-1-img-8.jpg"
-													alt="">
-												</a> <a href="#modalAddCart" data-toggle="modal"
-													class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add
-													to cart</a> <span class="product__tag product__tag--new">New</span>
-												<a href="wishlist.html" class="product__wishlist-icon"><i
-													class="icon-heart"></i></a>
-											</div>
-											<div class="product__price m-t-10">
-												<span class="product__price-reg">$10.71</span>
-											</div>
-											<a href="single-1.html"
-												class="product__link product__link--underline product__link--weight-light m-t-15">
-												SonicFuel Wireless Over-Ear Headphones </a>
-										</div>
-										<!-- End Single Default Product -->
-										<!-- Start Single Default Product -->
-										<div
-											class="product__box product__box--default product__box--border-hover swiper-slide text-center">
-											<div class="product__img-box">
-												<a href="single-1.html" class="product__img--link"> <img
-													class="product__img"
-													src="assets/img/product/size-normal/product-home-1-img-9.jpg"
-													alt="">
-												</a> <a href="#modalAddCart" data-toggle="modal"
-													class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add
-													to cart</a> <span class="product__tag product__tag--discount">-12%</span>
-												<a href="wishlist.html" class="product__wishlist-icon"><i
-													class="icon-heart"></i></a>
-											</div>
-											<div class="product__price m-t-10">
-												<span class="product__price-del">$11.90</span> <span
-													class="product__price-reg">$10.71</span>
-											</div>
-											<a href="single-1.html"
-												class="product__link product__link--underline product__link--weight-light m-t-15">
-												SonicFuel Wireless Over-Ear Headphones </a>
-										</div>
-										<!-- End Single Default Product -->
+									<div class="swiper-wrapper" id="listCategorySame">
+										<!-- Render list san pham lien quan -->
 									</div>
 									<div class="swiper-buttons">
 										<!-- Add Arrows -->
@@ -921,11 +645,8 @@
 <input type="hidden" value='<%=request.getAttribute("idProduct")%>'
 	id="idProduct" />
 <!-- ::::::::::::::All Javascripts Files here ::::::::::::::-->
-<script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-	integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<%@ include file="layout/scripts.jsp"%>
+
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -938,10 +659,9 @@
 				size: 1
 			},
 			success : function(data) {
-				console.log(data);
-				console.log(JSON.parse(data.product));
-				$('#productDetail').append(renderProductDetail(JSON.parse(data.product), "", JSON.parse(data.listSize), JSON.parse(data.listColor) ));
-				
+				console.log(JSON.parse(data.listProductSame))
+				$('#productDetail').html(renderProductDetail(JSON.parse(data.product), JSON.parse(data.listImage), JSON.parse(data.listSize), JSON.parse(data.listColor) ));
+				$('#listCategorySame').html(renderListProductSame(JSON.parse(data.listProductSame)))
 				/* Xử lý thay đổi size thì color thay đổi theo */
 				$('#product-size-real').on("change", function() {
 					let idSize = $('#product-size-real').val();
@@ -954,8 +674,15 @@
 						},
 						success : function(data) {
 							$('#color-filter').html(renderListColor(JSON.parse(data.listColor)));
+							/* Xử lý khi click chọn màu thì số lượng tối đa được set */
+							$('.product-color-select').on("click", function(e) {
+								let color = e.currentTarget.value.split('-')[1];
+								$('#quantity').html(renderQuantity(JSON.parse(data.listColor), color));
+								$.getScript("/TubeFashtion/assets/js/plugin/in-number.js", function() {
+							    });
+							})
+							/* Kết thúc  */
 						},
-						
 						type : 'GET'
 					});
 				})
@@ -965,16 +692,76 @@
 				$('.product-color-select').on("click", function(e) {
 					let color = e.currentTarget.value.split('-')[1];
 					$('#quantity').html(renderQuantity(JSON.parse(data.listColor), color));
+					$.getScript("/TubeFashtion/assets/js/plugin/in-number.js", function() {
+				    });
 				})
 				/* Kết thúc  */
+				
+			},
+			/*Gọi làm hàm script sau khi load ajax xong  */
+			complete: function() {
+			     $.getScript("/TubeFashtion/assets/js/plugin/in-number.js", function() {
+			     });
+			     $.getScript("/TubeFashtion/assets/js/plugin/swiper.min.js", function() {
+			     });
+			     $.getScript("/TubeFashtion/assets/js/main.js", function() {
+			     });
 			},
 			type : 'GET'
 		});
+		$(document).ajaxComplete(function(){
+	        console.log("123");
+	    });
     });
-    function renderListImage(listImage) {
+    
+    /*Render ra list ảnh của sản phẩm  */
+    function renderListImage(product, listImage) {
     	let html = ``;
+    	/*Render ra từng slider  */
+    	let swiper_slide = ``;
+    	listImage.forEach(image => {
+    		swiper_slide += `
+   			<div class="swiper-slide">
+				<a class="zoom-active"
+					data-image='<c:url value="/assets/img/product/\${image.image}"></c:url>'
+					data-zoom-image='<c:url value="/assets/img/product/\${image.image}"></c:url>'>
+					<img class="img-fluid"
+					src='<c:url value="/assets/img/product/\${image.image}"></c:url>'
+					alt="" style="height: 115px; width: 115px">
+				</a>
+			</div>
+    		`;
+    	})
     	html += `
-    		
+    		<div class="col-md-6">
+			<div class="product-gallery-box m-b-60">
+				<div class="product-image--large overflow-hidden">
+					<img class="img-fluid" id="img-zoom"
+						src='<c:url value="/assets/img/product/\${product.image}"></c:url>'
+						data-zoom-image='<c:url value="/assets/img/product/\${product.image}"></c:url>'
+						alt="" style="width:555px; height:555px">
+				</div>
+				<div class="pos-relative m-t-30">
+					<div id="gallery-zoom"
+						class="product-image--thumb product-image--thumb-horizontal overflow-hidden swiper-outside-arrow-hover m-lr-30">
+						<div class="swiper-wrapper">
+							\${swiper_slide}
+						</div>
+					</div>
+					<div class="swiper-buttons">
+						<!-- Add Arrows -->
+						<div
+							class="swiper-button-next gallery__nav gallery__nav--next">
+							<i class="fal fa-chevron-right"></i>
+						</div>
+						<div
+							class="swiper-button-prev gallery__nav gallery__nav--prev">
+							<i class="fal fa-chevron-left"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     	`;
     	return html;
     }
@@ -1022,7 +809,7 @@
     	let html = ``;
     	listColor.forEach(c => {
     		if(c.color == currentColor) {
-		    	html += `<input type="number" min="1" max="\${c.quantity}" step="1" value="1" />`;
+		    	html += `<input type="number" min="1" max="\${c.quantity}" step="1" value="1" id="inputQuantity"/>`;
     		}
     	})
     	return html;
@@ -1043,6 +830,7 @@
     		`;
     	}
     	html += `
+    		\${renderListImage(product, listImage)}
             <div class="col-md-6">
                 <div class="product-details-box">
                     <h5 class="section-content__title">\${product.name}</h5>
@@ -1079,7 +867,7 @@
                                 <div class="quantity" id="quantity">
                                     \${renderQuantity(listColor, "red")}
                                 </div>
-                                <a href="#modalAddCart" data-toggle="modal" data-dismiss="modal" class="btn btn--box btn--small btn--blue btn--uppercase btn--weight m-l-20">Add to cart</a>
+                                <a onclick="AddToCart()" data-toggle="modal" data-dismiss="modal" class="btn btn--box btn--small btn--blue btn--uppercase btn--weight m-l-20">Add to cart</a>
                             </div>
                            
                         </div>
@@ -1103,6 +891,60 @@
     	
     	return html;
     }
+    
+    /*Render list sản phẩm liên quan  */
+    function renderListProductSame(listProductSame) {
+    	let html = ``;
+        let storeSale = ``;
+        let storePrice = ``;
+        listProductSame.forEach(product => {
+        	if(product.sale != 0) {
+        		storeSale = `<span class="product__tag product__tag--discount">-\${product.sale}%</span>`;
+        		storePrice = `
+        			<span class="product__price-del">\${formatPrice(product.price)}</span> 
+                    <span class="product__price-reg">\${formatPrice(product.price - product.price*product.sale/100)}</span>
+        		`;
+        	} else {
+        		storeSale = ``;
+        		storePrice = `<span class="product__price-reg">\${formatPrice(product.price)}</span>`;
+        	}
+            html += `
+                <!-- Start Single Default Product -->
+                <div
+                    class="product__box product__box--default product__box--border-hover swiper-slide text-center">
+                    <div class="product__img-box">
+                        <a href="<c:url value="/detail?id=\${product.id}"></c:url>" class="product__img--link"> <img
+                            class="product__img"
+                            src='<c:url value="/assets/img/product/\${product.image}"></c:url>'
+                            alt="">
+                        </a> <a href="#modalAddCart" data-toggle="modal"
+                            class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add
+                            to cart</a> \${storeSale}
+                        <a onclick="addWishList(\${product.id})" class="product__wishlist-icon"><i
+                            class="icon-heart"></i></a>
+                    </div>
+                    <div class="product__price m-t-10">
+                        \${storePrice}
+                    </div>
+                    <a href='<c:url value="/detail?id=\${product.id}"></c:url>'
+                        class="product__link product__link--underline product__link--weight-light m-t-15">
+                        \${product.name} </a>
+                </div>
+                <!-- End Single Default Product -->
+            `;
+        });
+        return html;
+    }
+    
+   	/*Them san pham vao gio hang  */
+   	function AddToCart() {
+   		let size = $('#product-size-real').val();
+   		let color = $('input[name="product-color-select"]:checked').val();
+   		let quantity = $('#inputQuantity').val();
+   		console.log(size)
+   		console.log(color)
+   		console.log(quantity)
+   	}
     function formatPrice(price) {
         const formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -1111,8 +953,9 @@
         });
         return formatter.format(price);
     }
+    
     </script>
-<%@ include file="layout/scripts.jsp"%>
+
 </body>
 
 </html>

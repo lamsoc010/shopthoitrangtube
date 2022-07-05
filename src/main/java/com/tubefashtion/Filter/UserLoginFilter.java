@@ -12,38 +12,25 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet Filter implementation class UserLoginFilter
- */
 //@WebFilter(urlPatterns = {"/login", "/welcome", "/dashboard"})
 public class UserLoginFilter implements Filter {
 
-    /**
-     * Default constructor. 
-     */
     public UserLoginFilter() {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see Filter#destroy()
-	 */
 	public void destroy() {
 		// TODO Auto-generated method stub
 	}
-
-	/**
-	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		System.out.println("Filter check Login");
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
 		RequestDispatcher rd;
 		if(session.getAttribute("user") == null) {
-			rd = request.getRequestDispatcher("/Views/Client/index.jsp");
-		} else {
 			rd = request.getRequestDispatcher("/Views/Client/login.jsp");
+		} else {
+			rd = request.getRequestDispatcher("/Views/Client/index.jsp");
 		}
 		rd.forward(request, response);
 		

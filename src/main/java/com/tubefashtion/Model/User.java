@@ -1,15 +1,27 @@
 package com.tubefashtion.Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
+
+public class User implements Serializable{
 	int id;
 	String name, address, email, password, image, phone;
-	Date birthday, created_at, updated_at;
+	String birthday, created_at, updated_at;
 	
+	
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	public User(int id, String name, String address, String email, String password, String image, String phone,
-			Date birthday, Date created_at, Date updated_at) {
+			String birthday, String created_at, String updated_at) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,10 +34,7 @@ public class User {
 		this.created_at = created_at;
 		this.updated_at = updated_at;
 	}
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
 	public int getId() {
 		return id;
 	}
@@ -44,12 +53,17 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	@NotEmpty(message= "Email không được để trống!")
+	@Email(message="Vui lòng nhập đúng định dạng Email!")
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@NotEmpty(message= "Mật khẩu không được để trống!")
+	@Length(min = 8, max = 25, message="Độ dài mật khẩu không hợp lệ!")
 	public String getPassword() {
 		return password;
 	}
@@ -68,22 +82,22 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
-	public Date getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
-	public void setCreated_at(Date created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
-	public Date getUpdated_at() {
+	public String getUpdated_at() {
 		return updated_at;
 	}
-	public void setUpdated_at(Date updated_at) {
+	public void setUpdated_at(String updated_at) {
 		this.updated_at = updated_at;
 	}
 	

@@ -191,4 +191,39 @@ public class ProductDao {
 		}
 		return null;
 	}
+
+	public static List<Product> getProductSameIdSubCategory(int idSubCategory) {
+		List<Product> listProduct = new ArrayList<Product>();
+		Connection conn = DBConnection.getJDBCConnection();
+		String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.idSale = sale.id "
+				+ "where products.idSubCategory = ? ";
+		try {
+			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, idSubCategory);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Product p = new Product();
+				p.setId(rs.getInt(1));
+				p.setIdProduct(rs.getString(2));
+				p.setName(rs.getString(3));
+				p.setRating(rs.getFloat(4));
+				p.setIdSale(rs.getInt(5));
+				p.setImage(rs.getString(6));
+				p.setIdSubCategory(rs.getInt(7));
+				p.setPrice(rs.getFloat(8));
+				p.setQuantity(rs.getInt(9));
+				p.setDescreption(rs.getString(10));
+				p.setStatus(rs.getInt(11));
+				p.setCreated_at(rs.getDate(12));
+				p.setUpdated_at(rs.getDate(13));
+				p.setSale(rs.getFloat(14));
+				p.setTime_sale(rs.getDate(15));
+
+				listProduct.add(p);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return listProduct;
+	}
 }

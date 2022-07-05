@@ -484,6 +484,7 @@
 <%@ include file="layout/footer.jsp"%>
 
 <%@ include file="layout/scripts.jsp"%>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		let category = $('#category').val();
@@ -523,14 +524,7 @@
 			});
 		})
 	})
-	function formatPrice(price) {
-        const formatter = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'VND',
-            minimumFractionDigits: 0
-        });
-        return formatter.format(price);
-    }
+	
 	
 	function showProductList(listProduct, category) {
         let html = ``;
@@ -554,7 +548,7 @@
                     <div class="product__img-box">
                         <a href="<c:url value="/detail?id=\${product.id}"></c:url>" class="product__img--link"> <img
                             class="product__img"
-                            src='<c:url value="/assets/img/product/male/nam-polo-01.jpg"></c:url>'
+                            src='<c:url value="/assets/img/product/\${product.image}"></c:url>'
                             alt="">
                         </a> <a href="#modalAddCart" data-toggle="modal"
                             class="btn btn--box btn--small btn--gray btn--uppercase btn--weight btn--hover-zoom product__upper-btn">Add
@@ -644,41 +638,40 @@
 		});
 	}
 	
-	function showDetailProduct(id) {
-		
-		$.ajax({
-			url : '/TubeFashtion/detail',
-			dataType : 'json',
-			data: {
-				id: id
-			},
-			error : function(error) {
-			},
-			success : function(data) {
-				
-			},
-			
-			type : 'GET'
-		});
-	}
-	
 	/* Thêm vào danh mục yêu thích  */
 	function addWishList(id) {
+		let idUser = $('#idUser').val();
 		$.ajax({
 			url : '/TubeFashtion/WishListController',
 			dataType : 'json',
 			data: {
-				id: id
+				id: id,
+				idUser: idUser
 			},
 			success : function(data) {
 				$('#wishlist-item').html(JSON.parse(data.listWishList).length); 
-				console.log(data);
+				console.log(JSON.parse(data.listWishList).length);
+				console.log(JSON.parse(data.message));
+				if(JSON.parse(data.message) == "susscess") {
+					toastr.success('Thêm sản phẩm thành công!');
+				} else if(JSON.parse(data.message) == "error") {
+					toastr.error('Sản phẩm này đã có trong danh sách yêu thích');
+				}
 			},
 			
 			type : 'GET'
 		});
 	}
 	
+	/* Xử lý tiền tệ  */
+	function formatPrice(price) {
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'VND',
+            minimumFractionDigits: 0
+        });
+        return formatter.format(price);
+    }
 </script>
 </body>
 

@@ -43,7 +43,8 @@
 <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="Views/Client/assets/css/plugin/plugins.min.css"/>
     <link rel="stylesheet" href="Views/Client/assets/css/main.min.css"> -->
-
+<!--Toarst  -->
+ <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 <!-- Main Style CSS File -->
 <link rel="stylesheet"
 	href='<c:url value="/assets/css/main.css"></c:url>'>
@@ -68,25 +69,25 @@
 								</div>
 								<div class="header__top-content--right">
 									<div class="user-info user-set-role">
-									<%-- <c:set var = "user" scope = "session" value ="<%session.getAttribute("user"); %>"/>
+									<c:set var ="user" scope = "session" value ='<%= session.getAttribute("user") %>'/>
 										<c:choose>
-											<c:when test="${user != null }"> --%>
+											<c:when test="${user != null }"> 
+												<input type="hidden" value="<%= session.getAttribute("userId") %>" id="idUser"/>
 												<a class="user-set-role__button" href="#"
-													data-toggle="dropdown" aria-haspopup="true">Setting <i
+													data-toggle="dropdown" aria-haspopup="true">Xin chào, ${user } <i
 													class="fal fa-chevron-down"></i></a>
 												<ul class="expand-dropdown-menu dropdown-menu">
 													<li><a href="my-account.html">My account</a></li>
 													<li><a href="wishlist.html">My wishlist</a></li>
 													<li><a href="checkout.html">Checkout</a></li>
-													<li><a href='<c:url value="/login"/>'>Sign
-															in</a></li>
+													<li><a href='<c:url value="/logout"/>'>Đăng Xuất</a></li>
 												</ul>
-											<%-- </c:when>
+											</c:when>
 											<c:otherwise>
-												<a href='<c:url value="/Views/Client/login.jsp"/>'>Đăng Nhập</a>
-												<a href='<c:url value="/Views/Client/register.jsp"/>'>Đăng Ký</a>
+												<a href='<c:url value="/login"/>'>Đăng Nhập</a>
+												<a href='<c:url value="/register"/>'>Đăng Ký</a>
 											</c:otherwise>
-										</c:choose> --%>
+										</c:choose> 
 
 									</div>
 								</div>
@@ -359,7 +360,7 @@
 						<div class="header__mobile-top">
 							<div class="mobile-header__logo">
 								<a href="index.html" class="mobile-header__logo-link"> <img
-									src="assets/img/logo/tube.png" alt=""
+									src="" alt=""
 									class="mobile-header__logo-img">
 								</a>
 							</div>
