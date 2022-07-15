@@ -22,6 +22,7 @@ public class LogoutController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.removeAttribute("user");
+		session.removeAttribute("userId");
 		RequestDispatcher rd = request.getRequestDispatcher("/Views/Client/index.jsp");
 		rd.forward(request, response);
 	}

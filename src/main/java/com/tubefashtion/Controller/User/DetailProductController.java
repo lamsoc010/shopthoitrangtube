@@ -36,7 +36,7 @@ public class DetailProductController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-		int idSize = Integer.parseInt(request.getParameter("size"));
+		String size = request.getParameter("size");
 		
 //		Product
 		Product p = ProductDao.getProductById(id);
@@ -46,7 +46,7 @@ public class DetailProductController extends HttpServlet {
 		
 //		List Color by idSize
 //		Ý tưởng: Khi click chọn size thì sẽ có 1 ajax gửi lên đây kèm theo idSize, khi đó sẽ trả về listColor ứng với size đó
-		List<Color> listColor = ColorDao.getAllColorByIdSize(idSize);
+		List<Color> listColor = ColorDao.getAllColorByIdSize(size);
 		
 //		Lấy ra list image của sản phẩm đó
 		List<ImageProduct> listImage = ImageProductDao.getListImageProductByIdProduct(id);

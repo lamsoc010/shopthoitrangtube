@@ -16,7 +16,7 @@ public class TestServletContextAttributeListener implements ServletContextAttrib
     /* Phương thức này được gọi khi một thuộc tính được thêm vào đối tượng
     ServletContext */
     public void attributeAdded(ServletContextAttributeEvent arg0)  {
-    	System.out.println("Them thuoc tinh");
+    	System.out.println("Them thuoc tinh" + arg0.getName());
     }
     /* Phương thức này được gọi khi một thuộc tính bị xóa khỏi đối tượng
     ServletContext */

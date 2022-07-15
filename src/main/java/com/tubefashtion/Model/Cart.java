@@ -2,7 +2,7 @@ package com.tubefashtion.Model;
 
 public class Cart {
 	int id, idProduct, idUser, quantity;
-	String size, color, created_at, updated_at;
+	String size, name, image, color, created_at, updated_at;
 	float price, total;
 	public Cart() {
 		super();
@@ -21,6 +21,18 @@ public class Cart {
 		this.updated_at = updated_at;
 		this.price = price;
 		this.total = total;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	public int getId() {
 		return id;

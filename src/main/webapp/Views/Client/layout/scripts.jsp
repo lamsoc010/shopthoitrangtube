@@ -29,33 +29,7 @@
 
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src='<c:url value="/assets/js/main.js"/>'></script>
-    
-    <!--Them san pham vao muc yeu thich  -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script> 
-    /* Thêm vào danh mục yêu thích  */
-	function addWishList(id) {
-		let idUser = $('#idUser').val();
-		$.ajax({
-			url : '/TubeFashtion/WishListController',
-			dataType : 'json',
-			data: {
-				id: id,
-				idUser: idUser
-			},
-			success : function(data) {
-				$('#wishlist-item').html(JSON.parse(data.listWishList).length); 
-				console.log(JSON.parse(data.listWishList).length);
-				console.log(JSON.parse(data.message));
-				if(JSON.parse(data.message) == "susscess") {
-					toastr.success('Thêm sản phẩm thành công!');
-				} else if(JSON.parse(data.message) == "error") {
-					toastr.error('Sản phẩm này đã có trong danh sách yêu thích');
-				}
-			},
-			
-			type : 'GET'
-		});
-	}
-    </script>
+ <!-- Import funtcion script -->   
+<%@ include file="../function/scriptIndex.jsp"%>
+<%@ include file="../function/scriptListCart.jsp"%>
     

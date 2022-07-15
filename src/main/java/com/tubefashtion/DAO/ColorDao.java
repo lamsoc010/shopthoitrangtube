@@ -12,14 +12,14 @@ import com.tubefashtion.Model.Color;
 import com.tubefashtion.Model.Size;
 
 public class ColorDao {
-	public static List<Color> getAllColorByIdSize(int idSize) {
+	public static List<Color> getAllColorByIdSize(String size) {
 		Connection conn = DBConnection.getJDBCConnection();
 		List<Color> listColor = new ArrayList<Color>();
 		String sql = "SELECT detail_sizecolor.*, size.size, color.color from size, color, detail_sizecolor "
-				+ "WHERE size.id = detail_sizecolor.idSize and detail_sizecolor.idColor = color.id and detail_sizecolor.idSize = ? and color.status = 1";
+				+ "WHERE size.id = detail_sizecolor.idSize and detail_sizecolor.idColor = color.id and size.size = ? and color.status = 1";
 		try {
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setInt(1, idSize);
+			ps.setString(1, size);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				Color c = new Color();

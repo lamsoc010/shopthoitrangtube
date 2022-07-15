@@ -49,8 +49,8 @@ public class WishListController extends HttpServlet {
 //		Khi không có user
 		else {
 			message = WishListNoUser(request, session, message);
-			String listWishListJson =  String.valueOf(session.getAttribute("listWishList"));
 //			Chuyển đổi từ json sang list
+			String listWishListJson =  String.valueOf(session.getAttribute("listWishList"));
 			Gson gson = new Gson();
 		    java.lang.reflect.Type type = new TypeToken<List<WishList>>(){}.getType();
 		    listWishList = gson.fromJson(listWishListJson, type);

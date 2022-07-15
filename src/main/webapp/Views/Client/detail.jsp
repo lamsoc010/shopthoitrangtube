@@ -656,7 +656,7 @@
 			dataType : 'json',
 			data: {
 				id: idProduct,
-				size: 1
+				size: "S"
 			},
 			success : function(data) {
 				console.log(JSON.parse(data.listProductSame))
@@ -664,13 +664,13 @@
 				$('#listCategorySame').html(renderListProductSame(JSON.parse(data.listProductSame)))
 				/* Xử lý thay đổi size thì color thay đổi theo */
 				$('#product-size-real').on("change", function() {
-					let idSize = $('#product-size-real').val();
+					let size = $('#product-size-real').val();
 					$.ajax({
 						url : '/TubeFashtion/DetailProductController',
 						dataType : 'json',
 						data: {
 							id: idProduct,
-							size: idSize,
+							size: size,
 						},
 						success : function(data) {
 							$('#color-filter').html(renderListColor(JSON.parse(data.listColor)));
@@ -709,9 +709,6 @@
 			},
 			type : 'GET'
 		});
-		$(document).ajaxComplete(function(){
-	        console.log("123");
-	    });
     });
     
     /*Render ra list ảnh của sản phẩm  */
@@ -770,7 +767,7 @@
     function renderListSize(listSize) {
     	let html = ``;
     	listSize.forEach(size => {
-    		html += `<option value="\${size.idSize}">\${size.size}</option>`
+    		html += `<option value="\${size.size}">\${size.size}</option>`
     	})
     	return html;
     }
@@ -822,11 +819,11 @@
     	/* Xử lý giá sản phẩm  */
     	let priceSale = ``;
     	if(product.sale == 0) {
-    		priceSale = `<span class="product__price-reg">\${formatPrice(product.price)}</span>`;
+    		priceSale = `<span class="product__price-reg" id="priceProduct">\${formatPrice(product.price)}</span>`;
     	} else {
     		priceSale = `
     			<span class="product__price-del">\${formatPrice(product.price)}</span> 
-                <span class="product__price-reg">\${formatPrice(product.price - product.price*product.sale/100)}</span>
+                <span class="product__price-reg" id="priceProduct">\${formatPrice(product.price - product.price*product.sale/100)}</span>
     		`;
     	}
     	html += `
@@ -936,15 +933,7 @@
         return html;
     }
     
-   	/*Them san pham vao gio hang  */
-   	function AddToCart() {
-   		let size = $('#product-size-real').val();
-   		let color = $('input[name="product-color-select"]:checked').val();
-   		let quantity = $('#inputQuantity').val();
-   		console.log(size)
-   		console.log(color)
-   		console.log(quantity)
-   	}
+   	
     function formatPrice(price) {
         const formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
