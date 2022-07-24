@@ -15,11 +15,11 @@
 				idUser: idUser
 			},
 			success : function(data) {
-				$('#wishListQuantity').html(JSON.parse(data.listWishList).length); 
 				console.log(JSON.parse(data.listWishList).length);
 				console.log(JSON.parse(data.message));
 				if(JSON.parse(data.message) == "susscess") {
 					toastr.success('Thêm sản phẩm thành công!');
+					$('#wishListQuantity').html(JSON.parse(data.listWishList).length); 
 				} else if(JSON.parse(data.message) == "error") {
 					toastr.error('Sản phẩm này đã có trong danh sách yêu thích');
 				}

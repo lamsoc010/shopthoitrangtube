@@ -72,32 +72,23 @@ public class ProductController extends HttpServlet {
 	protected static List<Product> sortProduct(List<Product> listProduct, String value, int pageCurrent, int size, String category ) {
 		int offset = (pageCurrent - 1) * size;
 		if(value.equals("timeUp")) {
-//			String sql = 
-//					"select products.*, sale.sale, sale.time_sale \r\n"
-//					+ "from products left join sale on products.idSale = sale.id \r\n"
-//					+ "where idSubCategory in (\r\n"
-//					+ "    SELECT sub_category.id from sub_category \r\n"
-//					+ "    INNER JOIN category on sub_category.idCategory = category.id\r\n"
-//					+ "	WHERE category.name = \"Nam\")\r\n"
-//					+ "order by products.updated_at asc limit 0, 3 ";
-//			listProduct = ProductDao.getListProductSort(sql);
-			listProduct = ProductDao.getListProductSort1("products.updated_at", "asc", offset, size, category);
+			listProduct = ProductDao.getListProductSort1("products.created_at", "asc", offset, size, category);
 		} else if(value.equals("timeDown")) {
-			String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.idSale = sale.id order by products.updated_at desc limit " + offset +"," + size;
+			String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.id = sale.idProduct order by products.created_at desc limit " + offset +"," + size;
 			listProduct = ProductDao.getListProductSort(sql);
 		} else if(value.equals("nameUp")) {
-			String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.idSale = sale.id order by products.name asc limit " + offset +"," + size;
+			String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.id = sale.idProduct order by products.name asc limit " + offset +"," + size;
 			listProduct = ProductDao.getListProductSort(sql);
 		} else if(value.equals("nameDown")) {
-			String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.idSale = sale.id order by products.name desc limit " + offset +"," + size;
+			String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.id = sale.idProduct order by products.name desc limit " + offset +"," + size;
 			listProduct = ProductDao.getListProductSort(sql);
 		} else if(value.equals("priceUp")) {
 			String sql = "select products.*, sale.sale, sale.time_sale, (price - if(sale.sale != \"null\", price*sale.sale/100, 0)) as priceSort "
-					+ "from products left join sale on products.idSale = sale.id order by priceSort asc limit " + offset +"," + size;
+					+ "from products left join sale on products.id = sale.idProduct order by priceSort asc limit " + offset +"," + size;
 			listProduct = ProductDao.getListProductSort(sql);
 		} else if(value.equals("priceDown")) {
 			String sql = "select products.*, sale.sale, sale.time_sale, (price - if(sale.sale != \"null\", price*sale.sale/100, 0)) as priceSort "
-					+ "from products left join sale on products.idSale = sale.id order by priceSort desc limit " + offset +"," + size;
+					+ "from products left join sale on products.id = sale.idProduct order by priceSort desc limit " + offset +"," + size;
 			listProduct = ProductDao.getListProductSort(sql);
 		}
 		return listProduct;

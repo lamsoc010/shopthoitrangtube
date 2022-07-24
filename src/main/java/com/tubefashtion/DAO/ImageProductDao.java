@@ -34,4 +34,19 @@ public class ImageProductDao {
 		}
 		return listImage;
 	}
+	
+	public static void insertImageProduct(ImageProduct i) {
+		Connection conn = DBConnection.getJDBCConnection();
+		String sql = "insert into image_product (idProduct, image, status, created_at) values (?,?,?,?)";
+		try {
+			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, i.getIdProduct());
+			ps.setString(2, i.getImage());
+			ps.setInt(3, i.getStatus());
+			ps.setString(4, i.getCreated_at());
+			int rs = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

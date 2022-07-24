@@ -150,7 +150,7 @@
 				<h4 class="modal-title">Chi tiết sản phẩm</h4>
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
+					<span aria-hidden="true" >&times;</span>
 				</button>
 			</div>
 
@@ -284,118 +284,34 @@
                 { data: "message", "name": "message"  },
                 { data: "totalProduct", "name": "totalProduct"  },
                 { data: "total", "name": "total" },
-                { data: "status", "name": "status"},
+                { 
+                	render: function(data, type, full, meta) {
+                		if(full.status == 0) {
+                			return (`Chờ xử lý`);
+                		} else if(full.status == 1) {
+                			return (`Đang xử lý`);
+                		} else if(full.status == 2) {
+                			return(`Đã xử lý xong`);
+                		}
+                    } 
+                },
                 { data: "created_at","name": "created_at" },
                 { 
                 	render: function(data, type, full, meta) {
                     return (
                             `<button type="button" class="btn btn-outline-success " data-toggle="modal" onclick=Details(\${full.id})  data-target="#modal-details" ><i class="fas fa-eye"></i> </button>
-                            <button type="button" class="btn btn-outline-warning " onclick=Edit(\${full.id})  data-toggle="modal" data-target="#modal-edit"><i class="fas fa-pen"></i> </button>`
+                            <button type="button" class="btn btn-outline-warning " onclick=Edit(\${full.id})  data-toggle="modal" data-target="#modal-edit"><i class="fas fa-check"></i> </button>`
                         );
                 	} 
                 }
-               ],
-            
+              ],
         });
-		
-		// xử lý -  gửi data sau khi thông qua được validate
-	      $.validator.setDefaults({
-	        submitHandler: function (form) {
-	            
-	            var actionUrl ="/TubeFashtion/ListUserController";    
-	            $.ajax({
-	                type: "POST",
-	                url: actionUrl,
-	                data: { 
-	                	action: "create",
-	                    name: form.name.value,
-	                    email: form.email.value,
-	                    phone: form.phone.value,
-	                    address: form.address.value,
-	                    birthday: form.birthday.value,
-	                    password: form.password.value,
-	                    role: 'user',
-	                },
-	                success: function (data) {
-	                    // ẩn modal
-	                    $('div#modal-create').modal('hide');
-	                    // reload data in table
-	                    $('#example1').DataTable().ajax.reload();
-	                    // show message
-	                    Toast.fire({
-	                        icon: 'success',
-	                        title: "Thông tin được lưu lại thành công"
-	                    })
-	                    // xóa các biểu mẫu sau khi lưu
-	                    form.reset();
-	                },
-	                error: function (data, textStatus, errorThrown) {
-	                    $('#message').html('Email đã tồn tại');
-	                },
-	            });
-	        }
-	      });
-		
-		/*Validate client  */
-		$('#create-user').validate({
-	        rules: {
-	            name: {
-	                required: true,
-	            },
-	            email: {
-	                required: true,
-	                email: true,
-	            },
-	            phone: {
-	                required: true,
-	                phoneUK: true,
-	            
-	            },
-	            password : {
-	                required: true,
-	                minlength : 8
-	                },
-	                password_confirm : {
-	                    minlength : 8,
-	                    equalTo : '[name="password"]'
-	            }
-	        },
-	        messages: {
-	            email: {
-	                required: "Vui lòng nhập địa chỉ email",
-	                email: "Trường này là email"
-	            },
-	                name: {
-	                required: "Vui lòng nhập Họ $ tên",
-	            },
-	            phone: {
-	                required: "Vui lòng nhập số điện thoại",
-	                phoneUS: "Trường này là số điện thoại"
-	            },
-	            password: {
-	                required: "Vui lòng nhâp mật khẩu",
-	                minlength: "Độ dài tối thiểu 8 ký tự"
-	            },
-	            confirmpassword: {
-	                equalTo: "Mật khẩu không trùng khớp",
-	            }
-	        },
-	        errorElement: 'span',
-	        errorPlacement: function (error, element) {
-	          error.addClass('invalid-feedback');
-	          element.closest('.form-group').append(error);
-	        },
-	        highlight: function (element, errorClass, validClass) {
-	          $(element).addClass('is-invalid');
-	        },
-	        unhighlight: function (element, errorClass, validClass) {
-	          $(element).removeClass('is-invalid');
-	        }
-	      });
 	})
+		
 	
 	// show modal details
     function Details(idInfoOrder) {
+    	$('#detailProduct').DataTable().destroy();
 		$("#detailProduct").DataTable({
             pageLength: 10,
             ajax: {
@@ -408,7 +324,7 @@
                 }
             },
             columns: [
-                { data: "id", "name": "id"  },
+                { data: "idProduct", "name": "idProduct"  },
                 { 
                 	render: function(data, type, full, meta) {
                         return (
@@ -421,66 +337,54 @@
                 { data: "color", "name": "message"  },
                 { data: "size", "name": "totalProduct"  },
                 { data: "price", "name": "total" },
-                { data: "status", "name": "status"},
+                { 
+                	render: function(data, type, full, meta) {
+                		if(full.status == 0) {
+                			return (`Chờ kiểm hàng`);
+                		} else if(full.status == 1) {
+                			return (`Đã kiểm hàng`);
+                		} 
+                    } 
+                },
+                {
+                	render: function(data, type, full, meta) {
+                		if(full.status == 1) {
+                			return (`OK`);
+                		} 
+                        return (
+                                `<button type="button" class="btn btn-outline-success " onclick="checkProduct(\${full.id})" ><i class="fas fa-check"></i> </button>
+                                <button type="button" class="btn btn-outline-warning " onclick=Edit(\${full.id})  data-toggle="modal" data-target="#modal-edit"><i class="fas fa-trash"></i> </button>`
+                            );
+                    	} 
+                }
                ],
             
-        });
+        }).draw();
     }
 	
-	// show modal edit
-    function Edit(idUser){
-        $.ajax({
-            url: "/TubeFashtion/ListUserController",
+	function checkProduct(idOrder) {
+		$.ajax({
+            url: "/TubeFashtion/ListOrdersController",
             type: 'GET',
             data: {
-            	action: "detail",
-            	idUser: idUser
+            	action: "checkProduct",
+            	idOrder: idOrder
             },
             success: function (data) {
-            	let user = JSON.parse(data);
-                $('#ed-name').val(user.name);
-                $('#ed-email').val(user.email);
-                $('#ed-phone').val(user.phone);
-                $('#ed-address').val(user.address);
-                $('#ed-birthday').val(user.birthday);
-                $('#ed-image').val(user.image);
-            }
-        });
-    }
-	
-	/*Submit chỉnh sửa  */
-    $('#upload-image-form').submit(function(e) {
-        e.preventDefault();
-        var formData = new FormData(this);
-        console.log(...formData)
-        $.ajax({
-            type: "post",
-            url: "/TubeFashtion/ListUserController",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function (data) {
-                // ẩn modal
-                $('div#modal-edit').modal('hide');
-                // reload data in table
-                $('#example1').DataTable().ajax.reload();
-                // show message
+            	// show message
                 Toast.fire({
                     icon: 'success',
-                    title: "Thông tin được lưu lại thành công"
+                    title: "Kiểm hàng thành công"
                 })
-                // xóa các biểu mẫu sau khi lưu
-                $('#ed-name').val('');
-                $('#ed-email').val('');
-                $('#ed-phone').val('');
-                $('#ed-address').val('');
-                $('#ed-birthday').val('');
-            },
-            error: function (data, textStatus, errorThrown) {
-                $('#message').html('Email đã tồn tại');
-            },
+             // reload data in table
+                $('#detailProduct').DataTable().ajax.reload();
+             // reload data in table
+                $('#example1').DataTable().ajax.reload();
+            }
         });
-    });
+	}
+	
+	
  	// cấu hình message
     var Toast = Swal.mixin({
         toast: true,

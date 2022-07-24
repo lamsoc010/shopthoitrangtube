@@ -313,7 +313,7 @@
             	render: function(data, type, full, meta) {
                 return (
                         `<button type="button" class="btn btn-outline-success " data-toggle="modal" onclick=Details(\${full.id})  data-target="#modal-details" ><i class="fas fa-eye"></i> </button>
-                        <button type="button" class="btn btn-outline-warning " onclick=Edit(\${full.id})  data-toggle="modal" data-target="#modal-edit"><i class="fas fa-pen"></i> </button>`
+                        <a class="btn btn-outline-warning " href='<c:url value="/admin/product/editproduct?id=\${full.id}"></c:url>'><i class="fas fa-pen"></i> </a>`
                     );
             	} 
             }
@@ -431,7 +431,7 @@
                 $('.dt-image').attr('src', `<c:url value="/assets/img/product/\${product.image}"></c:url>`);
                 $('.dt-rating').html(product.rating);
                 $('.dt-sale').html(product.sale + "%");
-                $('.dt-category').html(product.idSubcategory);
+                $('.dt-category').html(product.idSubCategory);
                 $('.dt-descreption').html(product.descreption);
                
             }

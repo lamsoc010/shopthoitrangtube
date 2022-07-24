@@ -64,7 +64,7 @@
 								<div class="header__top-content--left">
 									<div class="contact_cms">
 										<span class="cms1">Telephone: </span> <span class="cms2">0777.241.999</span>
-										<% request.getAttribute("listCategory"); %>
+										<% session.getAttribute("listCategory"); %>
 									</div>
 								</div>
 								<div class="header__top-content--right">

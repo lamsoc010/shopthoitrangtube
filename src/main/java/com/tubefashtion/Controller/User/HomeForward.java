@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.tubefashtion.DAO.CategoryDao;
 import com.tubefashtion.Model.Category;
@@ -30,6 +31,10 @@ public class HomeForward extends HttpServlet {
 		
 		List<Category> listCategory = CategoryDao.getAllCategory();
 		List<SubCategory> listSubCategory = CategoryDao.getAllSubCategory();
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("listCategory", listCategory);
+		session.setAttribute("listSubCategory", listSubCategory);
 		
 		getServletContext().setAttribute("listCategory", listCategory);
 		getServletContext().setAttribute("listSubCategory", listSubCategory);

@@ -14,7 +14,7 @@ public class ProductDao {
 	public static List<Product> getAllProduct() {
 		List<Product> listProduct = new ArrayList<Product>();
 		Connection conn = DBConnection.getJDBCConnection();
-		String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.idSale = sale.id";
+		String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.id = sale.idProduct";
 		try {
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -31,10 +31,10 @@ public class ProductDao {
 				p.setQuantity(rs.getInt(9));
 				p.setDescreption(rs.getString(10));
 				p.setStatus(rs.getInt(11));
-				p.setCreated_at(rs.getDate(12));
-				p.setUpdated_at(rs.getDate(13));
+				p.setCreated_at(rs.getString(12));
+				p.setUpdated_at(rs.getString(13));
 				p.setSale(rs.getFloat(14));
-				p.setTime_sale(rs.getDate(15));
+				p.setTime_sale(rs.getString(15));
 
 				listProduct.add(p);
 			}
@@ -47,7 +47,7 @@ public class ProductDao {
 	public static List<Product> getProductPanigation(int offset, int totalPage) {
 		List<Product> listProduct = new ArrayList<Product>();
 		Connection conn = DBConnection.getJDBCConnection();
-		String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.idSale = sale.id limit ?, ?";
+		String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.id = sale.idProduct limit ?, ?";
 		try {
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setInt(1, offset);
@@ -66,10 +66,10 @@ public class ProductDao {
 				p.setQuantity(rs.getInt(9));
 				p.setDescreption(rs.getString(10));
 				p.setStatus(rs.getInt(11));
-				p.setCreated_at(rs.getDate(12));
-				p.setUpdated_at(rs.getDate(13));
+				p.setCreated_at(rs.getString(12));
+				p.setUpdated_at(rs.getString(13));
 				p.setSale(rs.getFloat(14));
-				p.setTime_sale(rs.getDate(15));
+				p.setTime_sale(rs.getString(15));
 
 				listProduct.add(p);
 			}
@@ -101,10 +101,10 @@ public class ProductDao {
 				p.setQuantity(rs.getInt(9));
 				p.setDescreption(rs.getString(10));
 				p.setStatus(rs.getInt(11));
-				p.setCreated_at(rs.getDate(12));
-				p.setUpdated_at(rs.getDate(13));
+				p.setCreated_at(rs.getString(12));
+				p.setUpdated_at(rs.getString(13));
 				p.setSale(rs.getFloat(14));
-				p.setTime_sale(rs.getDate(15));
+				p.setTime_sale(rs.getString(15));
 
 				listProduct.add(p);
 			}
@@ -118,7 +118,7 @@ public class ProductDao {
 		List<Product> listProduct = new ArrayList<Product>();
 		Connection conn = DBConnection.getJDBCConnection();
 		String sql = "select products.*, sale.sale, sale.time_sale, (price - if(sale.sale != 'null', price*sale.sale/100, 0)) as priceSort "
-				+ " from products left join sale on products.idSale = sale.id"
+				+ " from products left join sale on products.id = sale.idProduct"
 				+ " where idSubCategory in"
 				+ " (SELECT sub_category.id "
 				+ " from sub_category  "
@@ -145,10 +145,10 @@ public class ProductDao {
 				p.setQuantity(rs.getInt(9));
 				p.setDescreption(rs.getString(10));
 				p.setStatus(rs.getInt(11));
-				p.setCreated_at(rs.getDate(12));
-				p.setUpdated_at(rs.getDate(13));
+				p.setCreated_at(rs.getString(12));
+				p.setUpdated_at(rs.getString(13));
 				p.setSale(rs.getFloat(14));
-				p.setTime_sale(rs.getDate(15));
+				p.setTime_sale(rs.getString(15));
 
 				listProduct.add(p);
 			}
@@ -160,7 +160,7 @@ public class ProductDao {
 
 	public static Product getProductById(int id) {
 		Connection conn = DBConnection.getJDBCConnection();
-		String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.idSale = sale.id "
+		String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.id = sale.idProduct "
 				+ "where products.id = ? ";
 		try {
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
@@ -179,10 +179,10 @@ public class ProductDao {
 				p.setQuantity(rs.getInt(9));
 				p.setDescreption(rs.getString(10));
 				p.setStatus(rs.getInt(11));
-				p.setCreated_at(rs.getDate(12));
-				p.setUpdated_at(rs.getDate(13));
+				p.setCreated_at(rs.getString(12));
+				p.setUpdated_at(rs.getString(13));
 				p.setSale(rs.getFloat(14));
-				p.setTime_sale(rs.getDate(15));
+				p.setTime_sale(rs.getString(15));
 				
 				return p;
 			}
@@ -195,7 +195,7 @@ public class ProductDao {
 	public static List<Product> getProductSameIdSubCategory(int idSubCategory) {
 		List<Product> listProduct = new ArrayList<Product>();
 		Connection conn = DBConnection.getJDBCConnection();
-		String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.idSale = sale.id "
+		String sql = "select products.*, sale.sale, sale.time_sale from products left join sale on products.id = sale.idProduct "
 				+ "where products.idSubCategory = ? ";
 		try {
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
@@ -214,10 +214,10 @@ public class ProductDao {
 				p.setQuantity(rs.getInt(9));
 				p.setDescreption(rs.getString(10));
 				p.setStatus(rs.getInt(11));
-				p.setCreated_at(rs.getDate(12));
-				p.setUpdated_at(rs.getDate(13));
+				p.setCreated_at(rs.getString(12));
+				p.setUpdated_at(rs.getString(13));
 				p.setSale(rs.getFloat(14));
-				p.setTime_sale(rs.getDate(15));
+				p.setTime_sale(rs.getString(15));
 
 				listProduct.add(p);
 			}
@@ -226,4 +226,66 @@ public class ProductDao {
 		}
 		return listProduct;
 	}
+
+	public static int insertProduct(Product p) {
+		Connection conn = DBConnection.getJDBCConnection();
+		String sql = "insert into products (idProduct, name, image, idSubCategory, price, quantity, descreption, status, created_at)"
+				+ " values (?,?,?,?,?,?,?,?,?)";
+		int id = -1;
+		String[] returnId = { "BATCHID" };
+		try {
+			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql, returnId);
+			ps.setString(1, p.getIdProduct());
+			ps.setString(2, p.getName());
+			ps.setString(3, p.getImage());
+			ps.setInt(4, p.getIdSubCategory());
+			ps.setFloat(5, p.getPrice());
+			ps.setInt(6, p.getQuantity());
+			ps.setString(7, p.getDescreption());
+			ps.setInt(8, p.getStatus());
+			ps.setString(9, p.getCreated_at());
+			
+			int rsUpdate = ps.executeUpdate();
+			try (ResultSet rs = ps.getGeneratedKeys()) {
+			    if (rs.next()) {
+			    	id = rs.getInt(1);
+			    } 
+			    rs.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id;
+	}
+	
+	public static void updateProduct(Product p) {
+		Connection conn = DBConnection.getJDBCConnection();
+		String sql = "update products set quantity = ? where id = ?";
+		try {
+			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, p.getQuantity());
+			ps.setInt(2, p.getId());
+			int rs = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void editProduct(Product p) {
+		Connection conn = DBConnection.getJDBCConnection();
+		String sql = "update products set name = ?, price = ?, idSubCategory = ?, descreption = ? where idProduct = ?";
+		try {
+			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, p.getName());
+			ps.setFloat(2, p.getPrice());
+			ps.setInt(3, p.getIdSubCategory());
+			ps.setString(4, p.getDescreption());
+			ps.setString(5, p.getIdProduct());
+			int rs = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 }

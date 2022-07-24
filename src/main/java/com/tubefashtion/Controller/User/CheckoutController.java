@@ -2,6 +2,8 @@ package com.tubefashtion.Controller.User;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +39,7 @@ public class CheckoutController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		List<Cart> listCart = new ArrayList<Cart>();
 		InfoOrder info = new InfoOrder();
@@ -49,6 +52,7 @@ public class CheckoutController extends HttpServlet {
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
 		String message = request.getParameter("message");
+		System.out.println(message);
 		
 		HttpSession session = request.getSession();
 		if(session.getAttribute("idUser") != null) {
@@ -73,9 +77,12 @@ public class CheckoutController extends HttpServlet {
 		for (Cart cart : listCart) {
 			total += cart.getTotal();
 		}
+//		Lấy ngày tháng hiện tại
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		LocalDateTime now = LocalDateTime.now();
 		
 //		Xét giá trị cho inforOrder và insert vào database
-		info = new InfoOrder(0, fullname, address, phone, message, "2022/1/1", total);
+		info = new InfoOrder(0, fullname, address, phone, message, dtf.format(now), total);
 		idInfoOrders = InfoOrderDao.insertInfoOrder(info);
 
 //		Xet gia tri cho orders va insert vào database

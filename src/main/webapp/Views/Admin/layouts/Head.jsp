@@ -48,5 +48,9 @@
 <!-- SweetAlert2 -->
 <link rel="stylesheet"
 	href=<c:url value="/assets/AdminPTH/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css"/>>
-
+<link rel="stylesheet" href=<c:url value="/assets/AdminPTH/plugins/codemirror/codemirror.css"/>>
+<link rel="stylesheet" href=<c:url value="/assets/AdminPTH/plugins/codemirror/theme/monokai.css"/>>
+<!-- SimpleMDE -->
+ <!-- Message -->
+ <link rel="stylesheet" href=<c:url value="/assets/AdminPTH/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css"/>>
 </head>

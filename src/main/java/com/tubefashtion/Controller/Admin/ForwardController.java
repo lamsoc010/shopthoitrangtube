@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ForwardController
  */
-@WebServlet(urlPatterns = {"/admin/listuser", "/admin/listproduct", "/admin/listorders"})
+@WebServlet(urlPatterns = {"/admin/user/listuser", "/admin/product/listproduct", "/admin/product/listorders", "/admin/product/newproduct", "/admin/product/editproduct"})
 public class ForwardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,18 +26,30 @@ public class ForwardController extends HttpServlet {
 		System.out.println("servletPath: " + servletPath);
 		RequestDispatcher rd;
 		switch (servletPath) {
-			case "/admin/listuser": {
+			case "/admin/user/listuser": {
 				rd = request.getRequestDispatcher("/Views/Admin/pages/users/ListUsers.jsp");
 				rd.forward(request, response);
 				break;
 			}
-			case "/admin/listproduct": {
+			case "/admin/product/listproduct": {
 				rd = request.getRequestDispatcher("/Views/Admin/pages/product/list-product.jsp");
 				rd.forward(request, response);
 				break;
 			}
-			case "/admin/listorders": {
+			case "/admin/product/listorders": {
 				rd = request.getRequestDispatcher("/Views/Admin/pages/product/list-orders.jsp");
+				rd.forward(request, response);
+				break;
+			}
+			case "/admin/product/newproduct": {
+				rd = request.getRequestDispatcher("/Views/Admin/pages/product/new-product.jsp");
+				rd.forward(request, response);
+				break;
+			}
+			case "/admin/product/editproduct": {
+				rd = request.getRequestDispatcher("/Views/Admin/pages/product/edit-product.jsp");
+				int id = Integer.parseInt(request.getParameter("id"));
+				request.setAttribute("idProduct", id);
 				rd.forward(request, response);
 				break;
 			}

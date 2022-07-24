@@ -5,14 +5,13 @@ import java.util.Date;
 public class Sale {
 	int id, idProduct, status;
 	float sale;
-	Date time_sale, created_at, updated_at;
+	String time_sale, created_at, updated_at;
 	public Sale() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Sale(int id, int idProduct, int status, float sale, Date time_sale, Date created_at, Date updated_at) {
+	public Sale(int idProduct, int status, float sale, String time_sale, String created_at, String updated_at) {
 		super();
-		this.id = id;
 		this.idProduct = idProduct;
 		this.status = status;
 		this.sale = sale;
@@ -44,23 +43,25 @@ public class Sale {
 	public void setSale(float sale) {
 		this.sale = sale;
 	}
-	public Date getTime_sale() {
+	public String getTime_sale() {
 		return time_sale;
 	}
-	public void setTime_sale(Date time_sale) {
+	public void setTime_sale(String time_sale) {
 		this.time_sale = time_sale;
 	}
-	public Date getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
-	public void setCreated_at(Date created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
-	public Date getUpdated_at() {
+	public String getUpdated_at() {
 		return updated_at;
 	}
-	public void setUpdated_at(Date updated_at) {
+	public void setUpdated_at(String updated_at) {
 		this.updated_at = updated_at;
 	}
+	
+	
 	
 }

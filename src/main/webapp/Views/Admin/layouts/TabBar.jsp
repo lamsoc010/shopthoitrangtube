@@ -33,7 +33,7 @@
 						class="fas fa-home mr-2"></i>
 						<p>Trang Chủ</p>
 				</a></li>
-				<li class="nav-item"><a href='<c:url value="/admin/listuser"></c:url>' class="nav-link"> <i
+				<li class="nav-item"><a href='<c:url value="/admin/user/listuser"></c:url>' class="nav-link"> <i
 						class="fas fa-address-book mr-2"></i>
 						<p>Danh Sách Tài Khoản</p>
 
@@ -44,11 +44,11 @@
 						<p>Sản Phẩm</p> <i class="fas fa-angle-left right"></i>
 				</a>
 					<ul class="nav nav-treeview pl-3">
-						<li class="nav-item"><a href='<c:url value="/admin/listproduct"></c:url>' class="nav-link"> <i
+						<li class="nav-item"><a href='<c:url value="/admin/product/listproduct"></c:url>' class="nav-link"> <i
 								class="fas fa-home mr-2"></i>
 								<p>Danh Sách Sản Phẩm</p>
 						</a></li>
-						<li class="nav-item"><a href="/admin/motels/listMotels"
+						<li class="nav-item"><a href='<c:url value="/admin/product/newproduct"></c:url>'
 							class="nav-link"> <i class="fas fa-door-open mr-2"></i>
 								<p>Thêm Mới</p>
 						</a></li>
@@ -58,7 +58,7 @@
 						<p>Đơn Đặt Hàng</p> <i class="fas fa-angle-left right"></i>
 				</a>
 					<ul class="nav nav-treeview pl-3">
-						<li class="nav-item"><a href='<c:url value="/admin/listorders"></c:url>'
+						<li class="nav-item"><a href='<c:url value="/admin/product/listorders"></c:url>'
 							class="nav-link"> <i class="fas fa-envelope-open-text mr-2"></i>
 								<p>Danh Sách</p>
 						</a></li>

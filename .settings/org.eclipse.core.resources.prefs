@@ -1,7 +1,9 @@
 eclipse.preferences.version=1
 encoding//src/main/java/TestListener/TestServletContextAttributeListener.java=UTF-8
 encoding//src/main/java/com/tubefashtion/Controller/Admin/ForwardController.java=UTF-8
+encoding//src/main/java/com/tubefashtion/Controller/Admin/ListOrdersController.java=UTF-8
 encoding//src/main/java/com/tubefashtion/Controller/Admin/ListUserController.java=UTF-8
+encoding//src/main/java/com/tubefashtion/Controller/Admin/NewProductController.java=UTF-8
 encoding//src/main/java/com/tubefashtion/Controller/User/CartProductController.java=UTF-8
 encoding//src/main/java/com/tubefashtion/Controller/User/CheckoutController.java=UTF-8
 encoding//src/main/java/com/tubefashtion/Controller/User/DetailProductController.java=UTF-8
@@ -20,3 +22,4 @@ encoding//src/main/webapp/Views/Client/layout/header.jsp=UTF-8
 encoding//src/main/webapp/Views/Client/shop-list-nam.jsp=UTF-8
 encoding//src/main/webapp/Views/Client/shop-list-nu.jsp=UTF-8
 encoding//src/main/webapp/Views/Client/shop-list-treem.jsp=UTF-8
+encoding/<project>=UTF-8

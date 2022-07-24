@@ -9,14 +9,12 @@ public class ImageProduct {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ImageProduct(int id, int idProduct, int status, String image, String created_at, String updated_at) {
+	public ImageProduct(int idProduct, int status, String image, String created_at) {
 		super();
-		this.id = id;
 		this.idProduct = idProduct;
 		this.status = status;
 		this.image = image;
 		this.created_at = created_at;
-		this.updated_at = updated_at;
 	}
 
 	public int getId() {

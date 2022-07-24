@@ -1,33 +1,36 @@
 package com.tubefashtion.Model;
 
 public class Color {
-	int id, idSize, idColor, quantity, status;
+	int id, idDetailSize, idColor, quantity, status;
 	String size, color;
 	public Color() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Color(int id, int idSize, int idColor, int quantity, int status, String size, String color) {
+	
+	public Color(int idDetailSize, int idColor, int quantity, int status, String size, String color) {
 		super();
-		this.id = id;
-		this.idSize = idSize;
+		this.idDetailSize = idDetailSize;
 		this.idColor = idColor;
 		this.quantity = quantity;
 		this.status = status;
 		this.size = size;
 		this.color = color;
 	}
+
+	public int getIdDetailSize() {
+		return idDetailSize;
+	}
+
+	public void setIdDetailSize(int idDetailSize) {
+		this.idDetailSize = idDetailSize;
+	}
+
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getIdSize() {
-		return idSize;
-	}
-	public void setIdSize(int idSize) {
-		this.idSize = idSize;
 	}
 	public int getIdColor() {
 		return idColor;

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="layout/header.jsp"%>
+<%@ include file="./layout/header.jsp"%>
    <!-- ::::::  Start  Breadcrumb Section  ::::::  -->
     <div class="page-breadcrumb">
         <div class="container">
@@ -29,7 +29,7 @@
                             <div class="col-md-6">
                                 <div class="form-box__single-group">
                                     <label for="form-first-name">Họ và tên</label>
-                                    <input type="text" id="form-full-name">
+                                    <input type="text" id="form-full-name" >
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -38,12 +38,7 @@
                                     <input type="text" id="form-phone">
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-box__single-group">
-                                    <label for="form-company-name">Địa chỉ</label>
-                                    <input type="text" id="form-address">
-                                </div>
-                            </div>
+                            
                             <div class="col-md-12">
                                 <div class="form-box__single-group">
                                     <label for="form-country">Tỉnh thành</label>
@@ -66,6 +61,12 @@
                                     <select id="form-country-wards">
                                         <option value="select-country" selected>Chọn Phường/Xã</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-box__single-group">
+                                    <label for="form-company-name">Địa chỉ</label>
+                                    <input type="text" id="form-address">
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -271,7 +272,7 @@
     <!-- ::::::::::::::All Javascripts Files here ::::::::::::::-->
 
     <!-- Vendor JS Files -->
-    <%@ include file="layout/scripts.jsp"%>
+    <%@ include file="./layout/scripts.jsp"%>
     <script>
     $(document).ready(function() {
 		$.ajax({
@@ -362,9 +363,10 @@
 		let wards = $('#form-country-wards').find(":selected").text()
 		
 		let detailAddress = `\${address} , \${wards}, \${districts}, \${province}`;
-		console.log(detailAddress);
+		console.log(message);
 		$.ajax({
 			url : `/TubeFashtion/CheckoutController`,
+			type : 'GET',
 			dataType : 'json',
 			data: {
 				fullname: fullname,
@@ -381,7 +383,6 @@
 				}
 				console.log(data)
 			},
-			type : 'GET'
 		})
 	}
 	

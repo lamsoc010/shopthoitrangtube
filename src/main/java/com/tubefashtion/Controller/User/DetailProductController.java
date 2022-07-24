@@ -46,7 +46,7 @@ public class DetailProductController extends HttpServlet {
 		
 //		List Color by idSize
 //		Ý tưởng: Khi click chọn size thì sẽ có 1 ajax gửi lên đây kèm theo idSize, khi đó sẽ trả về listColor ứng với size đó
-		List<Color> listColor = ColorDao.getAllColorByIdSize(size);
+		List<Color> listColor = ColorDao.getAllColorByIdSize(size, id);
 		
 //		Lấy ra list image của sản phẩm đó
 		List<ImageProduct> listImage = ImageProductDao.getListImageProductByIdProduct(id);

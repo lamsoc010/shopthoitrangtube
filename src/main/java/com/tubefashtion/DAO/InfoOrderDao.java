@@ -15,7 +15,7 @@ public class InfoOrderDao {
 	public static List<InfoOrder> getAllListOrders() {
 		List<InfoOrder> listInfor = new ArrayList<InfoOrder>();
 		Connection conn = DBConnection.getJDBCConnection();
-		String sql = "select info_order.*, count(orders.id) as totalProduct from info_order, orders WHERE orders.idInfoOrder = info_order.id";
+		String sql = "SELECT info_order.*, (SELECT COUNT(id) FROM orders WHERE orders.idInfoOrder = info_order.id) as totalProduct from info_order LEFT JOIN orders on info_order.id = orders.idInfoOrder GROUP BY info_order.id";
 		try {
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -83,5 +83,18 @@ public class InfoOrderDao {
 			e.printStackTrace();
 		}
 		return id;
+	}
+
+	public static void updateInfoOrder(InfoOrder i) {
+		Connection conn = DBConnection.getJDBCConnection();
+		String sql = "update info_order set status = ? where id = ?";
+		try {
+			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, i.getStatus());
+			ps.setInt(2, i.getId());
+			int rs = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -26,12 +26,13 @@ public class DetailProductForward extends HttpServlet {
 		int id = 0;
 		if(request.getParameter("id") == null) {
 			RequestDispatcher rd = request.getRequestDispatcher("Views/Client/404.page.html");
+			rd.forward(request, response);
 		} else {
 			id = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("idProduct", id);
+			RequestDispatcher rd = request.getRequestDispatcher("Views/Client/detail.jsp");
+			rd.forward(request, response);
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("Views/Client/detail.jsp");
-		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

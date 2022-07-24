@@ -5,4 +5,5 @@
   	<welcome-file>HomeForward</welcome-file>
     <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
+  
 </web-app>

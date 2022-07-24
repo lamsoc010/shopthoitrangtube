@@ -3,7 +3,6 @@ package com.tubefashtion.Controller.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -17,10 +16,16 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.tubefashtion.DAO.CartDao;
+import com.tubefashtion.DAO.ColorDao;
+import com.tubefashtion.DAO.ImageProductDao;
 import com.tubefashtion.DAO.ProductDao;
+import com.tubefashtion.DAO.SizeDao;
 import com.tubefashtion.DAO.WishListDao;
 import com.tubefashtion.Model.Cart;
+import com.tubefashtion.Model.Color;
+import com.tubefashtion.Model.ImageProduct;
 import com.tubefashtion.Model.Product;
+import com.tubefashtion.Model.Size;
 import com.tubefashtion.Model.WishList;
 
 @WebServlet("/CartProductController")
@@ -40,6 +45,14 @@ public class CartProductController extends HttpServlet {
 		String action = request.getParameter("action");
 		JsonObject json = new JsonObject();
 		switch (action) {
+		case "detail": {
+			json = detailCart(request, response);
+			break;
+		}
+		case "views" : {
+			json = viewCart(request, response);
+			break;
+		}
 		case "create": {
 			json = addCart(request);
 			break;
@@ -52,6 +65,66 @@ public class CartProductController extends HttpServlet {
 		}
 		}
 		out.write(json.toString());
+	}
+	
+	public static JsonObject detailCart(HttpServletRequest request, HttpServletResponse response) {
+		JsonObject json = new JsonObject();
+		int id = Integer.parseInt(request.getParameter("id"));
+		String size = request.getParameter("size");
+		
+		
+//		List Size by IdProduct
+		List<Size> listSize = SizeDao.getAllSizeByIdProduct(id);
+		
+//		List Color by idSize
+//		Ý tưởng: Khi click chọn size thì sẽ có 1 ajax gửi lên đây kèm theo idSize, khi đó sẽ trả về listColor ứng với size đó
+		List<Color> listColor = ColorDao.getAllColorByIdSize(size, id);
+		
+		
+		
+//		Chuyen doi arraylist sang json
+		String listSizeJson = new Gson().toJson(listSize);
+		String listColorJson = new Gson().toJson(listColor);
+		
+//		Them json vao json object
+		json.addProperty("listSize", listSizeJson);
+		json.addProperty("listColor", listColorJson);
+		return json;
+	}
+	
+	public static JsonObject viewCart(HttpServletRequest request, HttpServletResponse response) {
+		JsonObject json = new JsonObject();
+//		Khai bao
+		int userId = 0;
+		List<Cart> listCart = new ArrayList<Cart>();
+		
+		HttpSession session = request.getSession();
+		if(session.getAttribute("userId") != null) {
+			userId = Integer.parseInt(String.valueOf(session.getAttribute("userId")));
+		}
+//		Khi không có user
+		if(userId == 0) {
+			Gson gson = new Gson();
+//			Trả về list Cart
+			String listCartJson =  String.valueOf(session.getAttribute("listCart"));
+		    java.lang.reflect.Type type = new TypeToken<List<Cart>>(){}.getType();
+		    listCart = gson.fromJson(listCartJson, type);
+		    
+		} 
+//		Khi co user
+		else {
+			listCart = CartDao.getAllListCart();
+		}
+		if(listCart == null) {
+			listCart = new ArrayList<Cart>();
+		}
+		
+		
+//		Chuyen doi arraylist sang json
+		String listCartJson = new Gson().toJson(listCart);
+//		Them json vao json object
+		json.addProperty("listCart", listCartJson);
+		return json;
 	}
 	
 	public static JsonObject deleteCart(HttpServletRequest request, int idProduct) {

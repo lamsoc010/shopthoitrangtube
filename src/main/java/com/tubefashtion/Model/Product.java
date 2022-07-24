@@ -6,7 +6,7 @@ public class Product {
 	int id, idSale, idSubCategory, quantity, status;
 	String idProduct, name, image, descreption;
 	float rating, price;
-	Date created_at, updated_at, time_sale;
+	String created_at, updated_at, time_sale;
 	float sale;
 	
 	public Product() {
@@ -15,9 +15,25 @@ public class Product {
 	}
 
 
+	public Product(int idSubCategory, int quantity, int status, String idProduct, String name, String image,
+			String descreption, float price, String created_at, String updated_at) {
+		super();
+		this.idSubCategory = idSubCategory;
+		this.quantity = quantity;
+		this.status = status;
+		this.idProduct = idProduct;
+		this.name = name;
+		this.image = image;
+		this.descreption = descreption;
+		this.price = price;
+		this.created_at = created_at;
+		this.updated_at = updated_at;
+	}
+
+
 	public Product(int id, int idSale, int idSubCategory, int quantity, int status, String idProduct, String name,
-			String image, String descreption, float rating, float price, Date created_at, Date updated_at,
-			Date time_sale, float sale) {
+			String image, String descreption, float rating, float price, String created_at, String updated_at,
+			String time_sale, float sale) {
 		super();
 		this.id = id;
 		this.idSale = idSale;
@@ -38,7 +54,7 @@ public class Product {
 
 
 	public Product(int id, int idSale, int idSubCategory, int quantity, int status, String idProduct, String name,
-			String image, String descreption, float rating, float price, Date created_at, Date updated_at) {
+			String image, String descreption, float rating, float price, String created_at, String updated_at) {
 		super();
 		this.id = id;
 		this.idSale = idSale;
@@ -167,32 +183,35 @@ public class Product {
 	}
 
 
-	public Date getCreated_at() {
+	
+
+
+	public String getCreated_at() {
 		return created_at;
 	}
 
 
-	public void setCreated_at(Date created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
 
 
-	public Date getUpdated_at() {
+	public String getUpdated_at() {
 		return updated_at;
 	}
 
 
-	public void setUpdated_at(Date updated_at) {
+	public void setUpdated_at(String updated_at) {
 		this.updated_at = updated_at;
 	}
 
 
-	public Date getTime_sale() {
+	public String getTime_sale() {
 		return time_sale;
 	}
 
 
-	public void setTime_sale(Date time_sale) {
+	public void setTime_sale(String time_sale) {
 		this.time_sale = time_sale;
 	}
 

@@ -9,14 +9,22 @@ public class Size {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Size(int id, int idProduct, int idSize, int quantity, int status, String size) {
+	public Size(int idProduct, int idSize, int quantity, int status, String size) {
 		super();
-		this.id = id;
 		this.idProduct = idProduct;
 		this.idSize = idSize;
 		this.quantity = quantity;
 		this.status = status;
 		this.size = size;
+	}
+
+	
+	public Size(int idProduct, int idSize, int quantity, int status) {
+		super();
+		this.idProduct = idProduct;
+		this.idSize = idSize;
+		this.quantity = quantity;
+		this.status = status;
 	}
 
 	public int getId() {

@@ -719,7 +719,7 @@
     	listImage.forEach(image => {
     		swiper_slide += `
    			<div class="swiper-slide">
-				<a class="zoom-active"
+				<a 
 					data-image='<c:url value="/assets/img/product/\${image.image}"></c:url>'
 					data-zoom-image='<c:url value="/assets/img/product/\${image.image}"></c:url>'>
 					<img class="img-fluid"
